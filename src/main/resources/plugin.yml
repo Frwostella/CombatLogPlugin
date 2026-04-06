@@ -1,0 +1,13 @@
+name: CombatLog
+version: 1.0
+main: jre.frwostella.combatLogPlugin.CombatLogPlugin
+api-version: 1.20
+
+commands:
+  combatlog:
+    description: CombatLog main command
+    usage: /combatlog reload
+
+permissions:
+  combatlog.reload:
+    default: op

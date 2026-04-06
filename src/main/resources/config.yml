@@ -1,0 +1,10 @@
+combat-time: 30
+
+logout-action: kill
+
+logout-command: "say %player% combat logged!"
+
+messages:
+  tagged: "&cYou are now in combat!"
+  safe: "&aYou are no longer in combat."
+  actionbar: "&c⚔ In combat: &f%time%s"
