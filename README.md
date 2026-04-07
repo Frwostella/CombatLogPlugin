@@ -16,7 +16,7 @@ A lightweight combat logging plugin for Minecraft Paper servers that prevents pl
 - 🔄 Reload command support
 
 ---
-## Supports 1.21.11 Minecraft
+## Supports 1.21.x Minecraft
 
 ---
 ## Installation
