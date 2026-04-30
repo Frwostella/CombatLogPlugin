@@ -29,12 +29,12 @@ The current version of CombatLogPlugin supports **Paper 26.1+** and should be bu
 | Target | Java | Status |
 |---|---|---|
 | Paper 26.1+ | Java 25 | Current version |
-| Paper 1.21+ / 1.21.11 | Java 21 | Use release `1.1` |
+| Paper 1.21+ / 1.21.11 | Java 21 | Check release `1.4.1` |
 
-For Paper 1.21+ / 1.21.11 support, download release `1.1` here:
+For Paper 1.21+ / 1.21.11 support, download release `1.4.1` here:
 
 ```txt
-https://github.com/Frwostella/CombatLogPlugin/releases/tag/1.1
+https://github.com/Frwostella/CombatLogPlugin/releases/tag/1.4.1
 ```
 
 Build the current Paper 26.1+ version:
