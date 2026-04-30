@@ -17,7 +17,7 @@ public class CombatListener implements Listener {
         this.manager = manager;
     }
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = true)
     public void onHit(EntityDamageByEntityEvent event) {
         if (!(event.getEntity() instanceof Player)) return;
 
