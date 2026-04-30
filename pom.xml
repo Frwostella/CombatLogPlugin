@@ -1,47 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>jre.frwostella</groupId>
     <artifactId>CombatLogPlugin</artifactId>
-    <version>1.0-BETA</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
 
     <name>CombatLogPlugin</name>
 
     <properties>
+        <!-- Default build is Paper 1.21.11 / Java 21 -->
         <java.version>21</java.version>
+        <paper.version>1.21.11-R0.1-SNAPSHOT</paper.version>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
     </properties>
 
     <build>
         <defaultGoal>clean package</defaultGoal>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>3.14.1</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <release>${java.version}</release>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.5.3</version>
+                <version>3.6.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
                         <goals>
                             <goal>shade</goal>
                         </goals>
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
+
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -61,8 +71,32 @@
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
-            <version>1.21.11-R0.1-SNAPSHOT</version>
+            <version>${paper.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <!-- Default profile for Paper 1.21.11 and Java 21 -->
+        <profile>
+            <id>paper-1.21.11</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <java.version>21</java.version>
+                <paper.version>1.21.11-R0.1-SNAPSHOT</paper.version>
+            </properties>
+        </profile>
+
+        <!-- Build with this profile for Paper 26.1+ and Java 25 -->
+        <profile>
+            <id>paper-26.1-plus</id>
+            <properties>
+                <java.version>25</java.version>
+                <paper.version>[26.1.2.build,)</paper.version>
+            </properties>
+        </profile>
+    </profiles>
+
 </project>
