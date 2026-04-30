@@ -4,11 +4,6 @@ A lightweight combat logging plugin for Minecraft Paper servers that prevents pl
 
 CombatLogPlugin tags players when they fight, shows an action bar countdown, and punishes players who log out while still in combat.
 
-> **Current version support:** CombatLogPlugin is now updated to support **Paper 26.1+**.
->
-> Looking for **Paper 1.21+ / 1.21.11 support**? Download release `1.1` here:
-> https://github.com/Frwostella/CombatLogPlugin/releases/tag/1.1
-
 ---
 
 ## Features
