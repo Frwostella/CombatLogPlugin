@@ -4,6 +4,11 @@ A lightweight combat logging plugin for Minecraft Paper servers that prevents pl
 
 CombatLogPlugin tags players when they fight, shows an action bar countdown, and punishes players who log out while still in combat.
 
+> **Current version support:** CombatLogPlugin is now updated to support **Paper 26.1+**.
+>
+> Looking for **Paper 1.21+ / 1.21.11 support**? Download release `1.1` here:
+> https://github.com/Frwostella/CombatLogPlugin/releases/tag/1.1
+
 ---
 
 ## Features
@@ -18,35 +23,29 @@ CombatLogPlugin tags players when they fight, shows an action bar countdown, and
 - ⚙️ Configurable settings
 - 🔄 Reload command support
 - 🧩 Compatible with TogglePVPCustom combat checks
-- 🧱 Build profile support for Paper 1.21.11 and Paper 26.1+
+- 🧱 Current release support for Paper 26.1+
 
 ---
 
 ## Version Support
 
-CombatLogPlugin can be built for both Paper 1.21.11 and newer Paper 26.1+ versions.
+The current version of CombatLogPlugin supports **Paper 26.1+** and should be built or used with **Java 25**.
 
-| Target | Java | Maven Profile |
+| Target | Java | Status |
 |---|---|---|
-| Paper 1.21.11 | Java 21 | `paper-1.21.11` |
-| Paper 26.1+ | Java 25 | `paper-26.1-plus` |
+| Paper 26.1+ | Java 25 | Current version |
+| Paper 1.21+ / 1.21.11 | Java 21 | Use release `1.1` |
 
-Build for Paper 1.21.11:
+For Paper 1.21+ / 1.21.11 support, download release `1.1` here:
+
+```txt
+https://github.com/Frwostella/CombatLogPlugin/releases/tag/1.1
+```
+
+Build the current Paper 26.1+ version:
 
 ```bash
 mvn clean package
-```
-
-or:
-
-```bash
-mvn clean package -Ppaper-1.21.11
-```
-
-Build for Paper 26.1+:
-
-```bash
-mvn clean package -Ppaper-26.1-plus
 ```
 
 For the Paper 26.1+ build, make sure Maven is running with JDK 25:
@@ -66,6 +65,12 @@ The output should show Java version 25.
 3. Start or restart your server.
 4. Configure `config.yml` to your liking.
 5. Use `/combatlog reload` after editing the config.
+
+For Paper 1.21+ / 1.21.11 servers, use release `1.1` instead:
+
+```txt
+https://github.com/Frwostella/CombatLogPlugin/releases/tag/1.1
+```
 
 ---
 
@@ -118,7 +123,14 @@ When TogglePVPCustom's CombatLog hook is enabled, players cannot disable PvP whi
 
 ## Requirements
 
-- Paper 1.21.11 with Java 21, or Paper 26.1+ with Java 25
+- Paper 26.1+
+- Java 25
+
+For Paper 1.21+ / 1.21.11 support, use release `1.1`:
+
+```txt
+https://github.com/Frwostella/CombatLogPlugin/releases/tag/1.1
+```
 
 ---
 
