@@ -29,24 +29,12 @@ The current version of CombatLogPlugin supports **Paper 26.1+** and should be bu
 | Target | Java | Status |
 |---|---|---|
 | Paper 26.1+ | Java 25 | Current version |
-| Paper 1.21+ / 1.21.11 | Java 21 | Use release `1.1` |
+| Paper 1.21+ / 1.21.11 | Java 21 | Check release `1.2.1` |
 
-For Paper 1.21+ / 1.21.11 support, download release `1.1` here:
+For Paper 1.21+ / 1.21.11 support, download release `1.2.1` here:
 
 ```txt
-https://github.com/Frwostella/CombatLogPlugin/releases/tag/1.4.1
-```
-
-Build the current Paper 26.1+ version:
-
-```bash
-mvn clean package
-```
-
-For the Paper 26.1+ build, make sure Maven is running with JDK 25:
-
-```bash
-mvn -version
+https://github.com/Frwostella/CombatLogPlugin/releases/tag/1.2.1
 ```
 
 The output should show Java version 25.
@@ -60,12 +48,6 @@ The output should show Java version 25.
 3. Start or restart your server.
 4. Configure `config.yml` to your liking.
 5. Use `/combatlog reload` after editing the config.
-
-For Paper 1.21+ / 1.21.11 servers, use release `1.1` instead:
-
-```txt
-https://github.com/Frwostella/CombatLogPlugin/releases/tag/1.1
-```
 
 ---
 
