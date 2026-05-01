@@ -35,7 +35,6 @@ public class CombatManager {
         lastOpponent.put(p1.getUniqueId(), p2.getUniqueId());
         lastOpponent.put(p2.getUniqueId(), p1.getUniqueId());
 
-        // Only send message ONCE when entering combat
         if (!wasInCombat1) {
             p1.sendMessage(color(plugin.getConfig().getString("messages.tagged")));
         }
@@ -60,12 +59,12 @@ public class CombatManager {
 
     public void handleDeath(Player dead) {
         UUID opponentUUID = lastOpponent.get(dead.getUniqueId());
-        if (opponentUUID == null) return;
-
-        Player opponent = Bukkit.getPlayer(opponentUUID);
-        if (opponent != null) {
-            remove(opponent);
-            opponent.sendMessage(color(plugin.getConfig().getString("messages.safe")));
+        if (opponentUUID != null) {
+            Player opponent = Bukkit.getPlayer(opponentUUID);
+            if (opponent != null) {
+                remove(opponent);
+                opponent.sendMessage(color(plugin.getConfig().getString("messages.safe")));
+            }
         }
 
         remove(dead);
