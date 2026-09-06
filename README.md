@@ -102,5 +102,4 @@ When TogglePVPCustom's CombatLog hook is enabled, players cannot disable PvP whi
 
 - Paper 26.1+
 - Java 25
--
 ---

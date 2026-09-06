@@ -1,7 +1,10 @@
 name: CombatLog
-version: 1.0
+version: 1.1.0
 main: jre.frwostella.combatLogPlugin.CombatLogPlugin
-api-version: 1.20
+api-version: 1.21.11
+author: Frwostella
+contributors: [ Shotadft ]
+website: https://github.com/Frwostella/CombatLogPlugin
 
 commands:
   combatlog:

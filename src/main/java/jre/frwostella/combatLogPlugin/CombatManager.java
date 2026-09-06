@@ -7,14 +7,16 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.*;
+import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class CombatManager {
 
     private final CombatLogPlugin plugin;
 
-    private final Map<UUID, Long> combatMap = new HashMap<>();
-    private final Map<UUID, UUID> lastOpponent = new HashMap<>();
+    private final Map<UUID, Long> combatMap = new ConcurrentHashMap<>();
+    private final Map<UUID, UUID> lastOpponent = new ConcurrentHashMap<>();
 
     public CombatManager(CombatLogPlugin plugin) {
         this.plugin = plugin;
@@ -24,7 +26,7 @@ public class CombatManager {
     public void tag(Player p1, Player p2) {
         int combatTime = plugin.getConfig().getInt("combat-time");
 
-        long expireTime = System.currentTimeMillis() + (combatTime * 1000);
+        long expireTime = System.currentTimeMillis() + (combatTime * 1000L);
 
         boolean wasInCombat1 = isInCombat(p1);
         boolean wasInCombat2 = isInCombat(p2);
@@ -44,9 +46,11 @@ public class CombatManager {
     }
 
     public boolean isInCombat(Player player) {
-        if (!combatMap.containsKey(player.getUniqueId())) return false;
+        Long expireTime = combatMap.get(player.getUniqueId());
 
-        long timeLeft = combatMap.get(player.getUniqueId()) - System.currentTimeMillis();
+        if (expireTime == null) return false;
+
+        long timeLeft = expireTime - System.currentTimeMillis();
 
         if (timeLeft <= 0) {
             remove(player);
@@ -94,9 +98,10 @@ public class CombatManager {
 
                     int timeLeft = getTimeLeft(player);
 
-                    String msg = plugin.getConfig()
-                            .getString("messages.actionbar")
-                            .replace("%time%", String.valueOf(timeLeft));
+                    String _msg = plugin.getConfig()
+                            .getString("messages.actionbar");
+                    if (_msg == null) return;
+                    String msg = _msg.replace("%time%", String.valueOf(timeLeft));
 
                     player.spigot().sendMessage(
                             ChatMessageType.ACTION_BAR,
