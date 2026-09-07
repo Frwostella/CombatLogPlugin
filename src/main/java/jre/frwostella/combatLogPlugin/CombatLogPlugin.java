@@ -4,11 +4,16 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jspecify.annotations.NonNull;
 
 public class CombatLogPlugin extends JavaPlugin {
 
     private static CombatLogPlugin instance;
     private CombatManager combatManager;
+
+    public static CombatLogPlugin getInstance() {
+        return instance;
+    }
 
     @Override
     public void onEnable() {
@@ -25,16 +30,12 @@ public class CombatLogPlugin extends JavaPlugin {
         getLogger().info("CombatLog Enabled!");
     }
 
-    public static CombatLogPlugin getInstance() {
-        return instance;
-    }
-
     public CombatManager getCombatManager() {
         return combatManager;
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(@NonNull CommandSender sender, Command command, @NonNull String label, String @NonNull [] args) {
 
         if (command.getName().equalsIgnoreCase("combatlog")) {
 
